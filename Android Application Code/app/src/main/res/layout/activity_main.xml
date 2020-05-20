@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".mainActivity">
+
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/logo"
+        android:paddingTop="25dp"
+        app:srcCompat="@drawable/logo" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="methodsActivity"
+        android:paddingTop="105dp">
+
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/buttonshadow"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/buttonshadow"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/button"
+            android:paddingStart="45dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/button"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:paddingStart="40dp"
+            android:paddingTop="10dp"
+            android:text="@string/methods"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="60dp"
+        android:onClick="connectionActivity">
+
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/buttonshadow"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/buttonshadow"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/button"
+            android:paddingStart="45dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/button"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:paddingStart="40dp"
+            android:paddingTop="10dp"
+            android:text="@string/connection"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="60dp"
+        android:onClick="creditsScreen">
+
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/buttonshadow"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/buttonshadow"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/button"
+            android:paddingStart="45dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/button"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:paddingStart="85dp"
+            android:paddingTop="10dp"
+            android:text="@string/credits"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:layout_width="500dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/bar"
+        app:srcCompat="@drawable/rectangle" />
+</LinearLayout>

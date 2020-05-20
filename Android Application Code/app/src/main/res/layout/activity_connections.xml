@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".connectionsActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/status_bar" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="83dp"
+            android:paddingBottom="300dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="19dp"
+                android:text="@string/status"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="190dp"
+                android:paddingEnd="39dp"
+                android:text="@string/waiting"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                tools:ignore="RtlSymmetry" />
+
+            <ImageView
+                android:id="@+id/statusLight"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/offlight"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="connectToRobot">
+
+        <ImageView
+            android:layout_width="185dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/button"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/button"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingStart="40dp"
+            android:paddingTop="30dp"
+            android:text="@string/connect"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="disconnectRobot">
+
+        <ImageView
+            android:layout_width="185dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start"
+            android:layout_marginTop="40dp"
+            android:contentDescription="@string/button"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/button"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingStart="28dp"
+            android:paddingTop="50dp"
+            android:text="@string/disconnect"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="returnToPreviousActivity">
+
+        <ImageView
+            android:layout_width="185dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start"
+            android:layout_marginTop="40dp"
+            android:contentDescription="@string/button"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/button"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingStart="60dp"
+            android:paddingTop="50dp"
+            android:text="@string/back"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+    </RelativeLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:layout_width="500dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/bar"
+        app:srcCompat="@drawable/rectangle" />
+
+</LinearLayout>
