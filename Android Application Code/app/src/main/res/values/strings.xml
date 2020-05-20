@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">INVENT</string>
+    <string name="logo">Logo</string>
+    <string name="buttonshadow">buttonshadow</string>
+    <string name="button">button</string>
+    <string name="bar">bar</string>
+    <string name="methods">METHODS</string>
+    <string name="connection">CONNECTION</string>
+    <string name="credits">CREDITS</string>
+    <string name="status">Status</string>
+    <string name="waiting">Waiting</string>
+    <string name="connect">CONNECT</string>
+    <string name="disconnect">DISCONNECT</string>
+    <string name="back">BACK</string>
+    <string name="method_1">Start Driving</string>
+    <string name="method_2">Switch Lights</string>
+    <string name="method_3">Go to Base</string>
+    <string name="method_4">Find Parking</string>
+    <string name="stop">STOP</string>
+    <string name="creditsText">We would like to dedicate our journey of success to the Faculty of the Department of Computer Science and Information Systems, College of Engineering and Applied Sciences, and the American University of Kuwait. We would also like to give special thanks to Prof. Aaron Rasheed Rababaah for all the kind support that he provided throughout our journey.</string>
+</resources>
