@@ -8,7 +8,6 @@ import os
 import argparse
 import cv2
 import numpy as np
-import sys
 from threading import Thread
 import importlib.util
 from time import ctime
@@ -17,7 +16,7 @@ GPIO.setmode(GPIO.BCM) #GPIO Mode (BOARD / BCM)
 turnLights = False
 GPIO_TRIGGER = 17 #ultra sonic pin
 GPIO_ECHO = 27 # ultrasonic pin
-GPIO.setwarnings(False) # enable warning from GPIO
+GPIO.setwarnings(False) #enable warning from GPIO
 AN2 = 24 # set pwm2 pin on MDDS10 to GPIO 25
 AN1 = 25 # set pwm1 pin on MDDS10 to GPIO 24
 DIG2 = 18 # set dir2 pin on MDDS10 to GPIO 23
@@ -28,9 +27,9 @@ GPIO.setup(DIG2, GPIO.OUT) # set pin as output
 GPIO.setup(DIG1, GPIO.OUT) # set pin as output
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT) #set pin as output
 GPIO.setup(GPIO_ECHO, GPIO.IN) #set pin as input
-sleep(1) # delay for 1 seconds
 p1 = GPIO.PWM(AN1, 100) # set pwm for M1
 p2 = GPIO.PWM(AN2, 100) # set pwm for M2
+sleep(1) # delay for 1 seconds
 photocellPin = 4 #photocell pin
 greenPin   = 5 #rgb light pin (green)
 redPin = 6 #rgb light pin (red)
@@ -43,13 +42,12 @@ ADDR = (HOST,PORT)
 
 
 #Setting up the local wifi connection
-
-tcpSerSock = socket(AF_INET,SOCK_STREAM)
-socketserver.TCPServer.allow_reuse_address=True
-socket.allow_reuse_address=True
-tcpSerSock.setsockopt(SOL_SOCKET,SO_REUSEADDR,1)
+tcpSerSock = socket(AF_INET,SOCK_STREAM) #ipv4, full duplex
+socketserver.TCPServer.allow_reuse_address=True #use socket even if already in use
+socket.allow_reuse_address=True #use socket even if already in use
+tcpSerSock.setsockopt(SOL_SOCKET,SO_REUSEADDR,1) #use socket even if already in use
 tcpSerSock.bind(ADDR)
-tcpSerSock.listen(5)
+tcpSerSock.listen(5) #buffer queue
 tcpSerSock.settimeout(0.00001)
     
 
@@ -94,12 +92,13 @@ class VideoStream:
         # Indicate that the camera and thread should be stopped
         self.stopped = True
 
-# Define and parse input arguments
+
+# Define and parse input arguments 
 parser = argparse.ArgumentParser()
 parser.add_argument('--modeldir', help='Folder the .tflite file is located in',required=True)
 parser.add_argument('--graph', help='Name of the .tflite file, if different than detect.tflite', default='detect.tflite')
 parser.add_argument('--labels', help='Name of the labelmap file, if different than labelmap.txt', default='labelmap.txt')
-parser.add_argument('--threshold', help='Minimum confidence threshold for displaying detected objects', default=0.4)
+parser.add_argument('--threshold', help='Minimum confidence threshold for displaying detected objects', default=0.75)
 parser.add_argument('--resolution', help='Desired webcam resolution in WxH. If the webcam does not support the resolution entered, errors may occur.', default='1280x720')
 parser.add_argument('--edgetpu', help='Use Coral Edge TPU Accelerator to speed up detection', action='store_true')
 
@@ -151,15 +150,15 @@ else:
 interpreter.allocate_tensors()
 
 # Get model details
-input_details = interpreter.get_input_details()
+input_details = interpreter.get_input_details() #retreives required height and width for the image
 output_details = interpreter.get_output_details()
 height = input_details[0]['shape'][1]
 width = input_details[0]['shape'][2]
-
 floating_model = (input_details[0]['dtype'] == np.float32)
 
-input_mean = 127.5
-input_std = 127.5
+input_mean = 127.5 #values for pixel normalization
+input_std = 127.5 #values for pixel normalization
+
 if labels[0] == '???':
     del(labels[0])
 # Initialize frame rate calculation
@@ -218,12 +217,13 @@ def processImage(movementLeft):
                 if(("traffic" in object_name) and (not "Red" in object_name)):
                     startLoop=False
                     object_name="Green"+object_name
-                if("parking" in object_name or "home" in object_name):
+                    moveForward(20,movementLeft)
+                if("parking" in object_name or "base" in object_name):
                     Stop()
                     moveRight(20,0.600)
                     moveForward(20,1)
                     startLoop=False
-                if("traffic" in object_name or "parking" in object_name or "home" in object_name):
+                if("traffic" in object_name or "parking" in object_name or "base" in object_name):
                     print(object_name)        
                 print(time.time()-exec)
 #Command for the car to start driving
