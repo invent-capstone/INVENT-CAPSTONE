@@ -69,7 +69,7 @@ public class methodsActivity extends AppCompatActivity {
     }
 
     public void func3(View view) {
-        cmd="#right";
+        cmd="#base";
         if(!func3) {
             Socket_AsyncTask right = new Socket_AsyncTask();
             right.execute();
@@ -84,7 +84,7 @@ public class methodsActivity extends AppCompatActivity {
     }
 
     public void func4(View view) {
-        cmd="#left";
+        cmd="#park";
         if(!func4) {
             Socket_AsyncTask left = new Socket_AsyncTask();
             left.execute();
@@ -157,9 +157,9 @@ public class methodsActivity extends AppCompatActivity {
             func1(null);
         } else if(str.contains("light")||str.contains("lite")||str.contains("flight")||str.contains("open")||str.contains("switch")){
             func2(null);
-        } else if(str.contains("right")){
+        } else if(str.contains("base")){
             func3(null);
-        } else if(str.contains("left")){
+        } else if(str.contains("park")){
             func4(null);
         } else if(str.contains("stop")|| str.contains("top")||str.contains("tab")||str.contains("sab")||str.contains("kab")){
             Stop(null);

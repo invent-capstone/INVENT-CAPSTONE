@@ -410,7 +410,7 @@ while True:
             data=False
         if not data:
             break
-        if "straight" in str(data):
+        if ("straight" in str(data) or "base" in str(data) or "park" in str(data)):
             straightLine()
         if "lights" in str(data):
             if turnLights:
