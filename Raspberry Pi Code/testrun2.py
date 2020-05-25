@@ -270,7 +270,7 @@ def straightLine():
             moveForward(20,1.2+counter)
             moveRight(20,counter-0.150)
             counter=0
-            Stop()
+            straightLight()
             break
     moveForward(20,0.6)
 
@@ -421,10 +421,6 @@ while True:
                 if lightLevel(photocellPin) > 10000:
                     yellowOn()
             print(turnLights)
-        if "right" in str(data):
-            moveRight(50,1)
-        if "left" in str(data):
-            moveLeft(50,1)
         if("stop" in str(data)):
             Stop()
             
